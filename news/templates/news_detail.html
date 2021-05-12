@@ -1,0 +1,20 @@
+{% extends "base_generic.html" %}
+
+{% block title%}{{ article.title }}{% endblock%}
+
+{% block content %}
+
+<div class="container">
+  <div class="row py-5 g-5">
+    <div class="col-md-15">
+        <article class="blog-post">
+            <h2 class="blog-post-title">{{ article.title }}</h2>
+            <p class="blog-post-meta">{{ article.publish_date }}</p>
+            <p class="blockquote py-2">{{ article.spoiler }}</p>
+            <hr>
+            <p>{{ article.text | safe }}</p>
+        </article>
+      </div>
+  </div>
+</div>
+{% endblock %}

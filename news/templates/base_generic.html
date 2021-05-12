@@ -15,6 +15,10 @@
   <meta name="generator" content="Hugo 0.83.1">
   <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/navbars/">
 
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.83.1">
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/blog/">
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://getbootstrap.com/docs/5.0/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -31,22 +35,26 @@
       <div class="collapse navbar-collapse" id="navbarsExample04">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">Категории</a>
+          <a class="nav-link" aria-current="page" href="/news/">Новости</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Новости</a>
+            <a class="nav-link" href="/categories/">Категории</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
-    {% block content %}{% endblock %}
+    
+    <main>
+    {% block content %}
+    {% endblock %}
+    </main>
 
-    <footer class="text-muted py-5">
+    <footer class="footer py-5">
     <div class="container">
       <p class="float-end mb-1">
-        <a href="#">Наверх</a>
+        <a href="">Наверх</a>
       </p>
       <p class="mb-1">BSNews - Новости по Brawl Stars</p>
     </div>
