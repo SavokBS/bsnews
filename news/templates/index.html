@@ -1,0 +1,26 @@
+{% extends "base_generic.html" %}
+
+{% block title%}BrawlNews{% endblock%}
+
+{% block content %}
+<h1>BrawlNews</h1>
+
+<h2>Категории</h2>
+<ul>
+{% for genre in genries%}
+<li>
+    {{ genre.name }}
+</li>
+{% endfor %}
+</ul>
+<h2>Статьи:</h2>
+<ul>
+{% for article in articles%}
+<li>
+    <p>{{ article.title }} {{article.author}}</p>
+    <img src="{{ article.promo.url }}">
+</li>
+{% endfor %}
+</ul>
+
+{% endblock %}
