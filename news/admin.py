@@ -12,6 +12,6 @@ class GenreAdmin(admin.ModelAdmin):
 class ArticleAdmin(admin.ModelAdmin):
     list_display = ('genre', 'title', 'author', 'likes')
     list_filter = ('genre', 'author')
-    fields = ('genre', 'title', 'author', 'spoiler', 'promo', 'text')
-    readonly_fields = ('likes', )
+    fields = ('genre', 'title', 'spoiler', 'promo', 'text', 'publish_date', 'author')
+    readonly_fields = ('publish_date', 'likes')
     search_fields = ('genre', 'title', 'author')
