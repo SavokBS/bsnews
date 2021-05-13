@@ -5,6 +5,8 @@ from datetime import datetime
 
 class Genre(models.Model):
     name = models.CharField("Название категории", max_length=100, help_text="Максимальная длина: 100 символов")
+    promo = models.ImageField("Изображение")
+    description = models.CharField("Описание", max_length=400, help_text="Максимальная длина: 400 символов")
 
     class Meta:
         verbose_name = "Категория"

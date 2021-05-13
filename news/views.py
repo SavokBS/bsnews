@@ -26,8 +26,6 @@ def news_detail(request, id):
     if request.session.get(f'like_{id}', 'False') == 'False':
         request.session[f'like_{id}'] = 'False'
 
-    print("nenen", like)
-
     return render(
         request,
         'news_detail.html',
@@ -42,4 +40,22 @@ def like(request, id):
     article.save()
 
     return HttpResponse(status=204)
+
+
+class GenriesListView(generic.ListView):
+    model = Genre
+    context_object_name = 'genries'
+    template_name = 'genries.html'
+    paginate_by = 9
+
+
+def show_genries_news(request, id):
+    articles = Article.objects.filter(genre=Genre.objects.get(id=id))
+
+    return render(
+        request,
+        'news.html',
+        context={'articles': articles}
+    )
+
 

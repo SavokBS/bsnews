@@ -1,0 +1,52 @@
+{% extends "base_generic.html" %}
+
+{% block title%}Категории{% endblock%}
+
+{% block content %}
+
+<main>
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {% for genre in genries %}
+        <div class="col">
+          <div class="card shadow-sm">
+            <img width="100%" height="225" src="{{ genre.promo.url }}">
+            <div class="card-body">
+              <p class="card-text">{{ genre.description }}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a type="button" class="btn btn-sm btn-outline-secondary" href="/genries/{{ genre.id }}">Посмотреть новости категории</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% block pagination %}
+          {% if is_paginated %}
+              <div class="pagination py-4">
+                  <span class="page-links">
+                      {% if page_obj.has_previous %}
+                        <a type="button" class="btn btn-sm btn-outline-secondary" href="{{ request.path }}?page={{ page_obj.previous_page_number }}">Назад</a>
+                      {% else %}
+                        <button type="button" class="btn btn-sm btn-outline-secondary" disabled>Назад</button>
+                      {% endif %}
+                      <span class="page-current">
+                        <button type="button" class="btn btn-sm btn-secondary" disabled>{{ page_obj.number }} из {{ page_obj.paginator.num_pages }}</button>
+                      </span>
+                      {% if page_obj.has_next %}
+                        <a type="button" class="btn btn-sm btn-outline-secondary" href="{{ request.path }}?page={{ page_obj.next_page_number }}">Вперёд</a>
+                      {% else %}
+                        <button type="button" class="btn btn-sm btn-outline-secondary" disabled>Вперёд</button>
+                      {% endif %}
+                  </span>
+              </div>
+          {% endif %}
+      {% endblock %} 
+    </div>
+    
+  </div>
+  
+{% endblock %}
