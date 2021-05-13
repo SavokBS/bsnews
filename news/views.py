@@ -49,7 +49,7 @@ class GenresListView(generic.ListView):
     paginate_by = 9
 
 
-def show_genries_news(request, id):
+def show_genres_news(request, id):
     articles = Article.objects.filter(genre=Genre.objects.get(id=id))
 
     return render(
