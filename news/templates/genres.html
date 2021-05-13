@@ -8,7 +8,7 @@
   <div class="album py-5 bg-light">
     <div class="container">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        {% for genre in genries %}
+        {% for genre in genres %}
         <div class="col">
           <div class="card shadow-sm">
             <img width="100%" height="225" src="{{ genre.promo.url }}">
@@ -16,7 +16,7 @@
               <p class="card-text">{{ genre.description }}</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <a type="button" class="btn btn-sm btn-outline-secondary" href="/genries/{{ genre.id }}">Посмотреть новости категории</a>
+                  <a type="button" class="btn btn-sm btn-outline-secondary" href="/genres/{{ genre.id }}">Посмотреть новости категории</a>
                 </div>
               </div>
             </div>

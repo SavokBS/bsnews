@@ -42,10 +42,10 @@ def like(request, id):
     return HttpResponse(status=204)
 
 
-class GenriesListView(generic.ListView):
+class GenresListView(generic.ListView):
     model = Genre
-    context_object_name = 'genries'
-    template_name = 'genries.html'
+    context_object_name = 'genres'
+    template_name = 'genres.html'
     paginate_by = 9
 
 
