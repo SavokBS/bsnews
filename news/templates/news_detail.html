@@ -14,12 +14,21 @@
               <hr>
               <p>{{ article.text | safe }}</p>
           </article>
+          {% if like == 'False' %}
           <form method="post" action="{{ article.id }}/like">
             {% csrf_token %}
-            <button type="submit" class="btn btn-sm btn-outline-secondary">Нравится {{ article.likes }}</button>
+            <button type="submit" class="btn btn-sm btn-outline-secondary" id="like">Нравится {{ article.likes }}</button>
+          {% else %}
+            <button type="submit" class="btn btn-sm btn-secondary" disabled>Нравится {{ article.likes }}</button>
+          {% endif %}
           </form>
         </div>
     </div>
   </div>
 </div>
+<script>
+  $("#like").click(function() {
+    $('#like').attr('class', 'btn btn-sm btn-secondary disabled');
+});
+</script>
 {% endblock %}

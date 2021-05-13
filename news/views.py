@@ -21,16 +21,25 @@ class NewsListView(generic.ListView):
     paginate_by = 9
 
 
-class NewsDetailView(generic.DetailView):
-    model = Article
-    context_object_name = 'article'
-    template_name = 'news_detail.html'
+def news_detail(request, id):
+    article = Article.objects.get(id=id)
+    if request.session.get(f'like_{id}', 'False') == 'False':
+        request.session[f'like_{id}'] = 'False'
+
+    print("nenen", like)
+
+    return render(
+        request,
+        'news_detail.html',
+        context={'article': article, 'like': request.session[f'like_{id}']}
+    )
 
 
 def like(request, id):
+    request.session[f'like_{id}'] = 'True'
     article = Article.objects.get(id=id)
     article.likes += 1
     article.save()
-    
+
     return HttpResponse(status=204)
 
