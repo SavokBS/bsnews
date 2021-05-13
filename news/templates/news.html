@@ -30,13 +30,17 @@
               <div class="pagination py-4">
                   <span class="page-links">
                       {% if page_obj.has_previous %}
-                          <a type="button" class="btn btn-sm btn-outline-secondary" href="{{ request.path }}?page={{ page_obj.previous_page_number }}">Назад</a>
+                        <a type="button" class="btn btn-sm btn-outline-secondary" href="{{ request.path }}?page={{ page_obj.previous_page_number }}">Назад</a>
+                      {% else %}
+                        <button type="button" class="btn btn-sm btn-outline-secondary" disabled>Назад</button>
                       {% endif %}
                       <span class="page-current">
-                          {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}
+                        <button type="button" class="btn btn-sm btn-secondary" disabled>{{ page_obj.number }} из {{ page_obj.paginator.num_pages }}</button>
                       </span>
                       {% if page_obj.has_next %}
-                          <a type="button" class="btn btn-sm btn-outline-secondary" href="{{ request.path }}?page={{ page_obj.next_page_number }}">Вперёд</a>
+                        <a type="button" class="btn btn-sm btn-outline-secondary" href="{{ request.path }}?page={{ page_obj.next_page_number }}">Вперёд</a>
+                      {% else %}
+                        <button type="button" class="btn btn-sm btn-outline-secondary" disabled>Вперёд</button>
                       {% endif %}
                   </span>
               </div>
