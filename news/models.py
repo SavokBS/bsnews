@@ -29,6 +29,7 @@ class Article(models.Model):
     class Meta:
         verbose_name = "Статья"
         verbose_name_plural = "Статьи"
+        ordering = ['-id']
 
     def __str__(self):
         return f"{self.title} ({self.author})"

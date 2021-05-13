@@ -29,6 +29,8 @@
 <script>
   $("#like").click(function() {
     $('#like').attr('class', 'btn btn-sm btn-secondary disabled');
+    let likes = parseInt($('#like').text().slice(9)) + 1;
+    $('#like').html('Нравится ' + likes)
 });
 </script>
 {% endblock %}

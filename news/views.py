@@ -5,7 +5,7 @@ from django.http import HttpResponse
 
 
 def index(request):
-    articles = Article.objects.all().reverse()[:9]
+    articles = Article.objects.all()[:9]
 
     return render(
         request,
