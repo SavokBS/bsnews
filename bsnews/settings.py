@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-87nw*-ghaetx9l
 #DEBUG = True
 DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
-ALLOWED_HOSTS = ['agile-ridge-73344.herokuapp.com']
+ALLOWED_HOSTS = ['agile-ridge-73344.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
