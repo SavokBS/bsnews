@@ -4,7 +4,7 @@ from ckeditor.fields import RichTextField
 from datetime import datetime
 
 class Genre(models.Model):
-    name = models.CharField("Название категории", max_length=100, help_text="Максимальная длина: 100 символов")
+    name = models.CharField("Название категории", max_length=40, help_text="Максимальная длина: 40 символов")
     promo = models.ImageField("Изображение")
     description = models.CharField("Описание", max_length=400, help_text="Максимальная длина: 400 символов")
 
@@ -18,7 +18,7 @@ class Genre(models.Model):
 
 class Article(models.Model):
     genre = models.ForeignKey(Genre, on_delete=models.DO_NOTHING, verbose_name="Категория")
-    title = models.CharField("Название статьи", max_length=300, help_text="Максимальная длина: 300 символов")
+    title = models.CharField("Название статьи", max_length=40, help_text="Максимальная длина: 40 символов")
     promo = models.ImageField("Изображение")
     spoiler = models.CharField("Спойлер", max_length=400, help_text="Максимальная длина: 400 символов")
     text = RichTextField(verbose_name="Текст статьи", blank=True, null=True)
