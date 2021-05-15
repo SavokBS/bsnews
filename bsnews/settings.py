@@ -28,7 +28,8 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-87nw*-ghaetx9l
 #DEBUG = True
 DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
-ALLOWED_HOSTS = ['agile-ridge-73344.herokuapp.com', '127.0.0.1']
+# add 
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ckeditor',
+    'storages',
     'news.apps.NewsConfig',
 ]
 
@@ -128,6 +130,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+# for deploy
+#----------------------
+
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'files', 'static')
 STATICFILES_DIRS = [
@@ -136,6 +141,29 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'files', 'media')
 MEDIA_URL = '/media/'
+
+#-------------
+
+# for production
+#-------------
+
+#STATIC_URL = '/static/'
+#STATIC_ROOT = os.path.join(BASE_DIR, 'files', 'static')
+
+#DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+#AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY', '')
+#AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_KEY', '')
+#AWS_STORAGE_BUCKET_NAME = 'brawlnews'
+
+#AWS_S3_FILE_OVERWRITE = False
+#AWS_DEFAULT_ACL = None
+
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+#-------------
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

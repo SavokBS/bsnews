@@ -3,27 +3,25 @@
 {% block title%}{{ article.title }}{% endblock%}
 
 {% block content %}
-<div class="bg-light">
-  <div class="container">
-    <div class="row py-5 g-5">
-      <div class="col-md-15">
-          <article class="blog-post">
-              <h2 class="blog-post-title">{{ article.title }}</h2>
-              <p class="blog-post-meta">{{ article.publish_date }}</p>
-              <p class="blockquote py-2">{{ article.spoiler }}</p>
-              <hr>
-              <p>{{ article.text | safe }}</p>
-          </article>
-          {% if like == 'False' %}
-          <form method="post" action="{{ article.id }}/like">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-sm btn-outline-secondary" id="like">Нравится {{ article.likes }}</button>
-          {% else %}
-            <button type="submit" class="btn btn-sm btn-secondary" disabled>Нравится {{ article.likes }}</button>
-          {% endif %}
-          </form>
-        </div>
-    </div>
+<div class="container">
+  <div class="py-5">
+    <div class="col-md-15">
+        <article class="blog-post">
+            <h2 class="blog-post-title">{{ article.title }}</h2>
+            <p class="blog-post-meta">{{ article.publish_date }}</p>
+            <p class="blockquote py-2">{{ article.spoiler }}</p>
+            <hr>
+            <p>{{ article.text | safe }}</p>
+        </article>
+        {% if like == 'False' %}
+        <form method="post" action="{{ article.id }}/like">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-sm btn-outline-secondary" id="like">Нравится {{ article.likes }}</button>
+        {% else %}
+          <button type="submit" class="btn btn-sm btn-secondary" disabled>Нравится {{ article.likes }}</button>
+        {% endif %}
+        </form>
+      </div>
   </div>
 </div>
 <script>
